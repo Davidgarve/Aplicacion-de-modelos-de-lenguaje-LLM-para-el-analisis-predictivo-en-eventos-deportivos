@@ -94,8 +94,6 @@ El pipeline completo se divide en varias fases:
 
 El código está organizado en cuadernos de Jupyter. Cada cuaderno corresponde a una parte del preprocesamiento o a una iteración concreta del proyecto.
 
-La idea es que puedan ejecutarse en orden, aunque varios cuadernos también sirven como entorno de pruebas para generar gráficas, revisar recortes o comprobar resultados intermedios.
-
 ### preprocesamiento.ipynb
 
 Este cuaderno prepara los datos originales para que puedan ser utilizados por el resto del sistema.
