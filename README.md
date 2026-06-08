@@ -104,8 +104,8 @@ Incluye:
 - agrupación de las 9 zonas originales de la portería en 3 zonas horizontales;
 - normalización temporal de todos los vídeos a 64 fotogramas;
 - aplicación de recorte o padding según la duración de cada vídeo;
-- sincronización entre los nuevos índices de vídeo y las anotaciones originales;
-- generación de archivos intermedios para las siguientes fases.
+- visualización de la distribución de longitudes de los vídeos;
+- análisis del contexto conservado al usar ventanas de 64 fotogramas.
 
 La reducción de 9 zonas a 3 se hace porque el proyecto se centra en la lateralidad del disparo. Predecir también la altura del balón habría requerido detalles visuales mucho más finos, como el punto exacto de contacto con el balón, que no siempre son fiables en los vídeos disponibles.
 
@@ -114,15 +114,11 @@ La reducción de 9 zonas a 3 se hace porque el proyecto se centra en la laterali
 Este cuaderno se utilizó principalmente para generar figuras, revisar visualmente el preprocesamiento y preparar material para la memoria del TFG.
 
 Incluye:
-
-- visualización de la distribución de longitudes de los vídeos;
-- análisis del contexto conservado al usar ventanas de 64 fotogramas;
 - pruebas con distintos niveles de padding espacial;
 - comparación entre redimensionamiento directo y preservación de aspect ratio;
 - generación de tiras de fotogramas por fase;
-- revisión visual de la segmentación del gesto;
-- creación de algunas matrices de confusión y gráficas usadas en la memoria.
-
+- revisión visual de la segmentación del gesto.
+  
 También sirvió para ajustar decisiones prácticas del pipeline, como el margen alrededor del jugador o el número de fotogramas seleccionados por fase.
 
 ### iteracion1_y_2.ipynb
