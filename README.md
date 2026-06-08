@@ -6,7 +6,7 @@ El caso de estudio elegido son los lanzamientos de penalti en fútbol. Aunque pu
 
 La idea principal del proyecto no es construir un sistema capaz de predecir penaltis con una precisión alta y listo para usarse en un contexto profesional. El objetivo real es estudiar si una arquitectura basada en modelos de visión-lenguaje puede extraer señales útiles del gesto del jugador y convertirlas en una representación intermedia interpretable. Esa representación se llama en el proyecto **memoria visual**.
 
-En lugar de entrenar una red neuronal que reciba el vídeo y devuelva directamente una clase final, el sistema separa el problema en dos partes. Primero, un modelo de visión-lenguaje observa una selección de fotogramas del penalti y describe lo que ve: postura del cuerpo, orientación del apoyo, trayectoria de la pierna, inclinación del torso, seguimiento posterior al golpeo, etc. Después, un segundo modelo o clasificador utiliza esa descripción para intentar inferir la dirección del lanzamiento.
+En lugar de entrenar una red neuronal que reciba el vídeo y devuelva directamente una clase final, el sistema separa el problema en dos partes. Primero, un modelo de visión-lenguaje observa una selección de fotogramas del penalti y describe lo que ve: postura del cuerpo, orientación del apoyo, trayectoria de la pierna, inclinación del torso, seguimiento posterior al golpeo, etc. Después, un segundo modelo utiliza esa descripción para intentar inferir la dirección del lanzamiento.
 
 Esta separación permite estudiar mejor qué está ocurriendo dentro del sistema. Si la predicción falla, no solo se mira el acierto final, sino también si el modelo visual había generado una memoria útil o si el problema estaba en la fase posterior de interpretación.
 
