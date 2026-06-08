@@ -31,7 +31,7 @@ El interés del proyecto está precisamente en esa evolución: comprobar qué ti
 
 ## Arquitectura del sistema
 
-El sistema sigue un enfoque predictivo. Es decir, no utiliza el vuelo del balón para decidir la dirección del penalti. Solo se analiza la información disponible antes y durante el golpeo.
+El sistema sigue un enfoque predictivo. Es decir, no utiliza el vuelo del balón para decidir la dirección del penalti. El análisis se centra en la información corporal disponible antes del golpeo, durante el impacto y en los primeros instantes del seguimiento posterior, sin utilizar la trayectoria final del balón.
 
 El pipeline completo se divide en varias fases:
 
@@ -114,11 +114,12 @@ La reducción de 9 zonas a 3 se hace porque el proyecto se centra en la laterali
 Este cuaderno se utilizó principalmente para generar figuras, revisar visualmente el preprocesamiento y preparar material para la memoria del TFG.
 
 Incluye:
+
 - pruebas con distintos niveles de padding espacial;
 - comparación entre redimensionamiento directo y preservación de aspect ratio;
 - generación de tiras de fotogramas por fase;
 - revisión visual de la segmentación del gesto.
-  
+
 También sirvió para ajustar decisiones prácticas del pipeline, como el margen alrededor del jugador o el número de fotogramas seleccionados por fase.
 
 ### iteracion1_y_2.ipynb
@@ -204,7 +205,7 @@ La quinta iteración recuperó el enfoque macro-gestual, esta vez con modelos m�
 
 Se mantuvo el VLM actualizado y se compararon distintas estrategias de inferencia textual. También se probaron diferentes formulaciones del prompt abierto, dando más importancia a señales globales del movimiento.
 
-Esta fue una de las líneas más prometedoras del proyecto. El sistema seguía teniendo problemas, sobre todo con los lanzamientos centrales, pero las memorias visuales generadas parecían contener más información útil que en las variantes micro-biomecánicas.
+Esta línea volvió a ser una de las más razonables dentro del proyecto, porque las señales macro-gestuales ya habían mostrado un comportamiento más estable que los detalles micro-biomecánicos. El sistema seguía teniendo problemas, sobre todo con los lanzamientos centrales, pero las memorias visuales generadas parecían contener más información útil que en las variantes micro-biomecánicas.
 
 ### iteracion_6.ipynb
 
@@ -226,7 +227,7 @@ Después se entrenaron modelos clásicos de machine learning sobre esa tabla:
 
 El objetivo era comprobar si la memoria visual contenía señal predictiva antes de pasar por el LLM.
 
-También se hizo una evaluación binaria eliminando los tiros al centro. Esta prueba no sustituye al problema original de tres clases, pero ayuda a estudiar si el sistema distingue mejor entre disparos laterales, es decir, entre abierto y cruzado.
+También se hizo una evaluación binaria eliminando los tiros al centro. Esta prueba no sustituye al problema original de tres clases, pero permite estudiar de forma más aislada si la memoria visual contiene señal suficiente para distinguir entre las dos direcciones laterales del disparo.
 
 Esta iteración permitió separar mejor dos tipos de error:
 
